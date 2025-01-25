@@ -16,7 +16,7 @@
   "type": "commonjs",
   "main": "src/index.js",
   "scripts": {
-    "start": "npm run start",
+    "start": "npm run node .",
     "deploy": "node src/utils/deploy"
   },
   "dependencies": {
