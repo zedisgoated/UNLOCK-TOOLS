@@ -1,0 +1,29 @@
+{
+  "name": "unlock-tools",
+  "version": "0.1.1",
+  "description": "Unlock your true potential.",
+  "keywords": [
+    "bot",
+    "discordbot",
+    "botdiscord",
+    "bot-discord",
+    "discord-bot",
+    "valorant",
+    "ctf"
+  ],
+  "license": "MIT",
+  "author": "zed",
+  "type": "commonjs",
+  "main": "src/index.js",
+  "scripts": {
+    "start": "npm run start",
+    "deploy": "node src/utils/deploy"
+  },
+  "dependencies": {
+    "colors": "^1.4.0",
+    "date-and-time": "^3.6.0",
+    "discord.js": "^14.17.3",
+    "dotenv": "^16.4.7",
+    "mongoose": "^8.9.5"
+  }
+}
