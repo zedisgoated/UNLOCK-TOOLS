@@ -17,11 +17,10 @@ const userSchema = new Schema({
             default: 0
         }
     },
-    sanctions: {
+    sanctions: [{
         type: {
             type: String,
-            required: false,
-            default: 'warn'
+            required: true
         },
         mod: {
             type: String,
@@ -30,14 +29,14 @@ const userSchema = new Schema({
         },
         date: {
             type: Date,
-            required: false
+            required: true
         },
         reason: {
             type: String,
             required: false,
             default: 'No reason specified'
         }
-    }
+    }]
 });
 
 const User = model('User', userSchema);
