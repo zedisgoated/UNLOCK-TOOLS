@@ -17,7 +17,7 @@ module.exports = {
 
         let i = 0;
 
-        const guild = client.guild.cache.get(guildId);
+        const guild = client.guilds.cache.get(guildId);
         const statChannel = client.channels.cache.get(statChannelId);
 
         setInterval(() => {
