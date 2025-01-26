@@ -8,7 +8,7 @@ async function closeTicket(interaction) {
         flags: MessageFlags.Ephemeral
     });
 
-    Ticket.findOneAndDelete({ channel: interaction.channel.id });
+    await Ticket.findOneAndDelete({ channel: interaction.channel.id });
     interaction.channel.delete().catch(() => {});
 }
 
