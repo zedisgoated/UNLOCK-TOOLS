@@ -1,20 +1,21 @@
-const { MessageFlags } = require("discord.js");
+const answerCommand = require('../utils/answerCommand');
+const openTicket = require('../utils/openTicket');
+const closeTicket = require('../utils/closeTicket');
 
 module.exports = {
     name: 'interactionCreate',
     run(interaction, client) {
-
         if (interaction.isChatInputCommand()) {
-
-            const command = client.commands.get(interaction.commandName);
-
-            if (!command) return interaction.reply({
-                content: 'An error has occured. Please contact an administrator.',
-                flags: MessageFlags.Ephemeral
-            });
-
-            client.commands.run(interaction, client);
-
+            answerCommand(interaction, client);
+        } else if (interaction.isButton()) {
+            switch (interaction.customId) {
+                case 'open-ticket':
+                    openTicket(interaction);
+                    break;
+                case 'close-ticket':
+                    closeTicket(interaction);
+                    break;
+            }
         }
     }
 }

@@ -27,7 +27,7 @@ function setPresence(client, guild) {
 function updateStatChannel(client, guild) {
     setInterval(() => {
         const statChannel = client.channels.cache.get(statChannelId);
-        if (!statChannel) return console.error('Please check your STAT_CHANNEL_ID in .env file!'.red);
+        if (!statChannel) return console.error('Please check your STAT_CHANNEL_ID_ID in .env file!'.red);
     
         statChannel.setName(`Members: ${guild.memberCount}`);
     }, 60000);

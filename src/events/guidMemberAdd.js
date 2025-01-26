@@ -1,6 +1,6 @@
 require('dotenv').config();
 const date = require('date-and-time');
-const memberRole = process.env.MEMBER_ROLE;
+const memberRole = process.env.MEMBER_ROLE_ID;
 
 module.exports = {
     name: 'guildMemberAdd',
