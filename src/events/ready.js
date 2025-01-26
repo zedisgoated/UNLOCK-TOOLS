@@ -2,6 +2,7 @@ require('dotenv').config();
 const guildId = process.env.GUILD_ID;
 const statChannelId = process.env.STAT_CHANNEL_ID;
 const { ActivityType } = require('discord.js');
+const User = require('../models/User');
 
 module.exports = {
     name: 'ready',
@@ -23,6 +24,17 @@ module.exports = {
         setInterval(() => {
             client.user.setActivity(statuses[i], { type: ActivityType.Watching });
             statChannel.setName(`Members: ${guild.memberCount}`).catch(() => {});
+            guild.members.cache.fitler((member) => member.voice.channel).forEach(async (member) => {
+
+                let user = await User.findOne({ id: member.id });
+
+                if (!user) {
+                    user = new User({ id: member.id });
+                }
+
+                user.stats.voice++; user.save();
+
+            });
             i = ++i % statuses.length;
         }, 60000);
     }
