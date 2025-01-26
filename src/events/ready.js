@@ -25,7 +25,7 @@ module.exports = {
             
             client.user.setActivity(statuses[i], { type: ActivityType.Watching });
             statChannel.setName(`Members: ${guild.memberCount}`).catch(() => {});
-            guild.members.cache.fitler((member) => member.voice.channel).forEach(async (member) => {
+            guild.members.cache.filter((member) => member.voice.channel).forEach(async (member) => {
 
                 let user = await User.findOne({ id: member.id });
 
