@@ -10,18 +10,19 @@ module.exports = {
     run(client) {
         console.log(`Successfully logged in as ${client.user.tag}! 🔓\nUnlock your TRUE POTENTIAL RIGHT NOW!!! 🔥`.blue);
 
-        const statuses = [
-            'Unlock your true potential',
-            '/help',
-            () => `${guild.memberCount} members`
-        ];
-
         let i = 0;
 
         const guild = client.guilds.cache.get(guildId);
         const statChannel = client.channels.cache.get(statChannelId);
 
         setInterval(() => {
+            const statuses = [
+                'Unlock your true potential',
+                '/help',
+                `${guild.memberCount} members`
+            ];
+
+            
             client.user.setActivity(statuses[i], { type: ActivityType.Watching });
             statChannel.setName(`Members: ${guild.memberCount}`).catch(() => {});
             guild.members.cache.fitler((member) => member.voice.channel).forEach(async (member) => {
