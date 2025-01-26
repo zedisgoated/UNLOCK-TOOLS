@@ -1,5 +1,5 @@
 const { MessageFlags, EmbedBuilder, ActionRowBuilder, ButtonBuilder, PermissionFlagsBits, ChannelType, ButtonStyle } = require('discord.js');
-const Ticket = require('../models/Ticket');
+const Ticket = require('../../models/Ticket');
 require('dotenv').config();
 
 const ticketParentId = process.env.TICKET_PARENT_ID;

@@ -1,6 +1,6 @@
 const answerCommand = require('../utils/answerCommand');
-const openTicket = require('../utils/openTicket');
-const closeTicket = require('../utils/closeTicket');
+const openTicket = require('../utils/tickets/openTicket');
+const closeTicket = require('../utils/tickets/closeTicket');
 
 module.exports = {
     name: 'interactionCreate',

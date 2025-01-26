@@ -1,5 +1,5 @@
 const { PermissionFlagsBits, MessageFlags } = require('discord.js');
-const Ticket = require('../models/Ticket');
+const Ticket = require('../../models/Ticket');
 require('colors');
 
 async function closeTicket(interaction) {
