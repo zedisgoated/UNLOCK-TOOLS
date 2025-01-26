@@ -8,16 +8,8 @@ async function closeTicket(interaction) {
         flags: MessageFlags.Ephemeral
     });
 
-    try {
-        await interaction.channel.delete();
-        Ticket.findOneAndDelete({ channel: interaction.channel.id });
-    } catch (err) {
-        console.error(`Could NOT delete ticket at ${interaction.channel.name}! Please check my permissions`.red);
-        interaction.reply({
-            content: 'An error has occured. Please contact the support',
-            flags: MessageFlags.Ephemeral
-        });
-    }
+    await interaction.channel.delete().catch(() => {});
+    Ticket.findOneAndDelete({ channel: interaction.channel.id });
 }
 
 module.exports = closeTicket;
