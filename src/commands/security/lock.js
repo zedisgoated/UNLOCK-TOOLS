@@ -18,7 +18,7 @@ module.exports = {
                 SendMessages: false
             });
 
-            interaction.reply('The channel has bee locked');
+            interaction.reply('The channel has been locked');
         } catch {
             interaction.reply({
                 content: 'Could NOT lock channel, please check my permissions',

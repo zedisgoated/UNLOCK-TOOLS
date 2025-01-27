@@ -19,7 +19,8 @@ module.exports = {
             const statuses = [
                 'Unlock your true potential',
                 '/help',
-                `${guild.memberCount} members`
+                `${guild.memberCount} members`,
+                'Made by zed'
             ];
 
             

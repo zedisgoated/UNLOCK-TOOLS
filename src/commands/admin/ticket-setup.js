@@ -23,7 +23,12 @@ module.exports = {
                 embeds: [
                     new EmbedBuilder()
                         .setTitle('Tickets')
-                        .setDescription('Click on the button below to contact support\nCliquez sur le bouton ci-dessous pour contacter le support')
+                        .setDescription('🇬🇧 Click on the button below to contact support\n🇫🇷 Cliquez sur le bouton ci-dessous pour contacter le support')
+                        .setColor('#5dade2')
+                        .setFooter({
+                            iconURL: client.user.displayAvatarURL()
+                        })
+                        
                 ],
                 components: [
                     new ActionRowBuilder()

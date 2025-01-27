@@ -17,9 +17,10 @@ module.exports = {
                     dynamic: true,
                 }),
             })
+            .setColor('#5dade2')
             .setFooter({
-                text: 'Type "/help <command>" for more informations',
-                iconURL: client.user.displayAvatarURL({ dynamic: true }),
+                text: 'Ping staff for more',
+                iconURL: client.user.displayAvatarURL(),
             })
             .setTimestamp();
 
