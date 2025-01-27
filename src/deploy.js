@@ -9,15 +9,15 @@ const clientId = process.env.CLIENT_ID;
 const guildId = process.env.GUILD_ID;
 
 const commands = [];
-const commandDirsPath = join(__dirname, '../commands');
+const commandDirsPath = join(__dirname, 'commands');
 const commandDirs = readdirSync(commandDirsPath);
 
 for (const dir of commandDirs) {
-    const dirPath = join(__dirname, `../commands/${dir}`);
+    const dirPath = join(__dirname, `commands/${dir}`);
     const commandFiles = readdirSync(dirPath).filter((file) => file.endsWith('.js'));
 
     for (const file of commandFiles) {
-        const commandPath = join(__dirname, `../commands/${dir}/${file}`);
+        const commandPath = join(__dirname, `commands/${dir}/${file}`);
         const command = require(commandPath);
 
         if ('data' in command && 'run' in command) {

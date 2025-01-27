@@ -3,6 +3,8 @@ const date = require('date-and-time');
 const { ActionRowBuilder } = require("@discordjs/builders");
 
 module.exports = {
+    permissions: [],
+    usage: 'ticket-setup [channel]',
     data: new SlashCommandBuilder()
         .setName('ticket-setup')
         .setDescription('Setup the ticket system')

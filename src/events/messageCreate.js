@@ -13,5 +13,9 @@ module.exports = {
 
         user.stats.text++;
         user.save();
+
+        if (message.content.includes('<@1332663944732479540>')) {
+            message.repl('Current prefix: `/`\nType `/help` for more informations')
+        }
     }
 }
