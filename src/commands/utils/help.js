@@ -2,7 +2,9 @@ const {
     SlashCommandBuilder,
     MessageFlags,
     EmbedBuilder,
+    AttachmentBuilder,
 } = require("discord.js");
+const { join } = require('path');
 
 module.exports = {
     data: new SlashCommandBuilder()
@@ -17,7 +19,6 @@ module.exports = {
                     dynamic: true,
                 }),
             })
-            .setThumbnail('attachment://../../assets/japanese_wave')
             .setColor('#3498db')
             .setFooter({
                 text: 'Ping staff for more',

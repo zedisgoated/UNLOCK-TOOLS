@@ -8,7 +8,7 @@ module.exports = {
     name: 'ready',
     once: true,
     run(client) {
-        console.log(`Successfully logged in as ${client.user.tag}! 🔓\nUnlock your TRUE POTENTIAL RIGHT NOW!!! 🔥`.blue);
+        console.log(`Successfully logged in as ${client.user.tag}! 🌊`.blue);
 
         let i = 0;
 
@@ -17,7 +17,6 @@ module.exports = {
 
         setInterval(() => {
             const statuses = [
-                'Unlock your true potential',
                 '/help',
                 `${guild.memberCount} members`,
             ];
