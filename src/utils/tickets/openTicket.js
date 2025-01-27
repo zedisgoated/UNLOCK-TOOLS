@@ -52,6 +52,7 @@ async function openTicket(interaction) {
                                 name: interaction.user.username,
                                 iconURL: interaction.user.displayAvatarURL({ dynamic: true })
                             })
+                            .setColor('#3498db')
                             .setDescription(`Welcome to your ticket ${interaction.user.username}\nThe staff will take in charge your demand as soon as possible\nMake sure to describe your problem as much as possible`)
                             .setFooter({ text: 'Please do not ping staff' })
                     ],
