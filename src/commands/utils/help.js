@@ -17,6 +17,7 @@ module.exports = {
                     dynamic: true,
                 }),
             })
+            .setThumbnail('attachment://../../assets/japanese_wave')
             .setColor('#3498db')
             .setFooter({
                 text: 'Ping staff for more',

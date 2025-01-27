@@ -20,7 +20,6 @@ module.exports = {
                 'Unlock your true potential',
                 '/help',
                 `${guild.memberCount} members`,
-                'Made by zed'
             ];
 
             
