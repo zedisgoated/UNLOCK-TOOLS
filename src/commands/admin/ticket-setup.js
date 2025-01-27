@@ -13,7 +13,6 @@ module.exports = {
             option
                 .setName('channel')
                 .setDescription('The channel where the ticket system will be set up')
-                .setRequired(false)
         ),
     async run(interaction, client) {
         const channel = interaction.options.getChannel() || interaction.channel;
@@ -26,7 +25,8 @@ module.exports = {
                         .setDescription('🇬🇧 Click on the button below to contact support\n🇫🇷 Cliquez sur le bouton ci-dessous pour contacter le support')
                         .setColor('#5dade2')
                         .setFooter({
-                            iconURL: client.user.displayAvatarURL()
+                            iconURL: client.user.displayAvatarURL(),
+                            text: 'Please be patient and do not ping staff!'
                         })
                         
                 ],
@@ -47,15 +47,12 @@ module.exports = {
                 flags: MessageFlags.Ephemeral
             });
         } catch (err) {
-            const currentDate = new Date();
-            const currentDateFormatted = date.format(currentDate, 'DD/MM HH:mm:ss');
-
             interaction.reply({
-                content: `Could NOT open ticket in channel ${channel}i!\nPlease check my permissions`,
+                content: `Could NOT open ticket in channel ${channel}!\nPlease check my permissions`,
                 flags: MessageFlags.Ephemeral
             });
 
-            console.error(err);
+            console.log(err);
         }
     }
 }

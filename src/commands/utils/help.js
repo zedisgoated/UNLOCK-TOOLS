@@ -17,7 +17,7 @@ module.exports = {
                     dynamic: true,
                 }),
             })
-            .setColor('#5dade2')
+            .setColor('#3498db')
             .setFooter({
                 text: 'Ping staff for more',
                 iconURL: client.user.displayAvatarURL(),
