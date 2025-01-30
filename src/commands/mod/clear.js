@@ -1,6 +1,10 @@
 const { SlashCommandBuilder, PermissionFlagsBits, MessageFlags } = require("discord.js");
 
 module.exports = {
+    category: 'mod',
+    permissions: ['Manage Messages'],
+    usage: '[amount]',
+    aliases: ['purge'],
     data: new SlashCommandBuilder()
         .setName('clear')
         .setDescription('Clear messages')

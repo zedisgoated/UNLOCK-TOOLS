@@ -6,7 +6,7 @@ const ticketParentId = process.env.TICKET_PARENT_ID;
 const staffRoleId = process.env.STAFF_ROLE_ID;
 const clientId = process.env.CLIENT_ID;
 
-async function openTicket(interaction) {
+async function openTicket(interaction, client) {
     const ticket = await Ticket.findOne({ user: interaction.user.id });
     if (ticket) return interaction.reply({
         content: 'You can only open one ticket at a time!',
@@ -52,9 +52,10 @@ async function openTicket(interaction) {
                                 name: interaction.user.username,
                                 iconURL: interaction.user.displayAvatarURL({ dynamic: true })
                             })
-                            .setColor('#3498db')
+                            .setColor('#a1c6e8')
                             .setDescription(`Welcome to your ticket ${interaction.user.username}\nThe staff will take in charge your demand as soon as possible\nMake sure to describe your problem as much as possible`)
-                            .setFooter({ text: 'Please do not ping staff' })
+                            .setFooter({ text: client.user.tag, iconURL: client.user.displayAvatarURL() })
+                            .setThumbnail('https://images.alphacoders.com/695/thumb-1920-69561.jpg')
                     ],
                     components: [
                         new ActionRowBuilder()

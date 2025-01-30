@@ -1,6 +1,7 @@
-const answerCommand = require('../utils/answerCommand');
-const openTicket = require('../utils/tickets/openTicket');
-const closeTicket = require('../utils/tickets/closeTicket');
+const answerCommand = require('../utils/interaction/answerCommand');
+const openTicket = require('../utils/interaction/openTicket');
+const closeTicket = require('../utils/interaction/closeTicket');
+const changeCategory = require('../utils/interaction/changeCategory');
 
 module.exports = {
     name: 'interactionCreate',
@@ -10,12 +11,14 @@ module.exports = {
         } else if (interaction.isButton()) {
             switch (interaction.customId) {
                 case 'open-ticket':
-                    openTicket(interaction);
+                    openTicket(interaction, client);
                     break;
                 case 'close-ticket':
                     closeTicket(interaction);
                     break;
             }
+        } else if (interaction.isStringSelectMenu()) {
+            changeCategory(interaction, client);
         }
     }
 }

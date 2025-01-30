@@ -3,8 +3,10 @@ const date = require('date-and-time');
 const { ActionRowBuilder } = require("@discordjs/builders");
 
 module.exports = {
-    permissions: [],
-    usage: 'ticket-setup [channel]',
+    category: 'admin',
+    permissions: ['Manage Channels'],
+    usage: '[channel]',
+    aliases: [],
     data: new SlashCommandBuilder()
         .setName('ticket-setup')
         .setDescription('Setup the ticket system')
@@ -23,11 +25,12 @@ module.exports = {
                     new EmbedBuilder()
                         .setTitle('Tickets')
                         .setDescription('🇬🇧 Click on the button below to contact support\n🇫🇷 Cliquez sur le bouton ci-dessous pour contacter le support')
-                        .setColor('#5dade2')
+                        .setColor('#a1c6e8')
                         .setFooter({
                             iconURL: client.user.displayAvatarURL(),
-                            text: 'Please be patient and do not ping staff!'
+                            text: client.user.tag
                         })
+                        .setImage('https://images.alphacoders.com/695/thumb-1920-69561.jpg')
                         
                 ],
                 components: [

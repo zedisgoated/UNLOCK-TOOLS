@@ -1,4 +1,6 @@
 const User = require('../models/User');
+require('dotenv').config();
+const imagesRoleId = process.env.IMAGES_ROLE_ID;
 
 module.exports = {
     name: 'messageCreate',
@@ -12,10 +14,25 @@ module.exports = {
         }
 
         user.stats.text++;
+
+        if (user.stats.text >= 100) {
+            try {
+                message.member.roles.add(imagesRoleId);
+                message.reply('Congratulations! You just unlocked the images on this server\nKeep going 👍');
+            } catch {}
+        }
+
         user.save();
 
         if (message.content.includes('<@1332663944732479540>')) {
-            message.repl('Current prefix: `/`\nType `/help` for more informations')
+            message.reply('Current prefix: `/`\nType `/help` for more informations')
+        }
+
+        if (message.channel.id === '1333876095593746556') {
+            try {
+                await message.react('👍');
+                await message.react('👎');
+            } catch {}
         }
     }
 }

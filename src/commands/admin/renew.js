@@ -1,33 +1,35 @@
 const { SlashCommandBuilder, PermissionFlagsBits, MessageFlags } = require("discord.js");
 
 module.exports = {
-    category: 'security',
+    category: 'admin',
     permissions: ['Manage Channels'],
     usage: '[channel]',
-    aliases: [],
+    aliases: ['clone'],
     data: new SlashCommandBuilder()
-        .setName('lock')
-        .setDescription('Lock channel')
+        .setName('renew')
+        .setDescription('Renews a channel')
         .setDefaultMemberPermissions(PermissionFlagsBits.ManageChannels)
         .addChannelOption(option =>
             option
                 .setName('channel')
-                .setDescription('The channel you want to lock')
+                .setDescription('The channel you want to renew')
         ),
-    async run (interaction) {
+    async run(interaction) {
         const channel = interaction.options.getChannel('channel') || interaction.channel;
 
         try {
-            await channel.permissionOverwrites.edit(interaction.guild.roles.everyone.id, {
-                SendMessages: false
+            const newChannel = await channel.clone();
+            await newChannel.send(`Channel renewed ${interaction.user}`).then((m) => {
+                setTimeout(() => {
+                    m.delete().catch(() => {});
+                }, 3000);
             });
-
-            interaction.reply('The channel has been locked');
+            await channel.delete();
         } catch {
             interaction.reply({
-                content: 'Could NOT lock channel, please check my permissions',
+                content: 'Could NOT renew this channel! Please contact support.',
                 flags: MessageFlags.Ephemeral
-            });
+            }).catch(() => {});
         }
     }
 }

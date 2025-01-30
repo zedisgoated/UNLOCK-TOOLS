@@ -1,10 +1,14 @@
 const { SlashCommandBuilder, PermissionFlagsBits, MessageFlags } = require("discord.js");
 
 module.exports = {
+    category: 'security',
+    permissions: ['Manage Channels'],
+    usage: '[channel]',
+    aliases: [],
     data: new SlashCommandBuilder()
         .setName('unlock')
         .setDescription('Unlock channel')
-        .setDefaultMemberPermissions(PermissionFlagsBits.ManageMessages)
+        .setDefaultMemberPermissions(PermissionFlagsBits.ManageChannels)
         .addChannelOption(option =>
             option
                 .setName('channel')

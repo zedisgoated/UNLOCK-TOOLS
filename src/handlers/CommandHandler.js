@@ -18,6 +18,9 @@ module.exports = (client) => {
 
             if ('data' in command && 'run' in command) {
                 client.commands.set(command.data.name, command);
+                command.aliases.forEach((alias) => {
+                    client.commands.set(alias, command);
+                });
             } else {
                 console.log(`[WARNING] The file at path ${commandPath} is missing required properties "data" or "run" and could NOT be loaded!`.yellow);
             }
