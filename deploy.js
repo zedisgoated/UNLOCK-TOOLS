@@ -9,7 +9,6 @@ const clientId = process.env.CLIENT_ID;
 const guildId = process.env.GUILD_ID;
 
 const commands = [];
-const aliases = [];
 const commandDirsPath = join(__dirname, 'src/commands');
 const commandDirs = readdirSync(commandDirsPath);
 
@@ -25,7 +24,7 @@ for (const dir of commandDirs) {
             commands.push(command.data.toJSON());
             command.aliases.forEach((alias) => {
                 command.data.name = alias;
-                aliases.push(command.data.toJSON());
+                commands.push(command.data.toJSON());
             });
         } else {
             console.log(`[WARNING] The file at path ${commandPath} is missing required properties "data" or "run" and could NOT be loaded`.yellow);

@@ -24,7 +24,7 @@ module.exports = {
                 embeds: [
                     new EmbedBuilder()
                         .setTitle('Tickets')
-                        .setDescription('🇬🇧 Click on the button below to contact support\n🇫🇷 Cliquez sur le bouton ci-dessous pour contacter le support')
+                        .setDescription('Click on the button below to contact support')
                         .setColor('#a1c6e8')
                         .setFooter({
                             iconURL: client.user.displayAvatarURL(),
