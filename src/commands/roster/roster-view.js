@@ -2,6 +2,17 @@ const { SlashCommandBuilder, MessageFlags } = require("discord.js");
 const Roster = require("../../models/Roster");
 const { EmbedBuilder } = require("@discordjs/builders");
 
+const roleOrder = [
+    'Manager',
+    'Head Coach',
+    'Assistant Coach',
+    'Mental Coach',
+    'Analyst',
+    'In-Game Leader',
+    'Co-Lead',
+    'Player'
+];
+
 module.exports = {
     category: "roster",
     permissions: [],
@@ -39,7 +50,12 @@ module.exports = {
                 iconURL: client.user.displayAvatarURL(),
             });
 
-        roster.members.sort((member) => member.role).forEach((member) => {
+        roster.members.sort((a, b) => {
+            const roleAIndex = roleOrder.indexOf(a.role);
+            const roleBIndex = roleOrder.indexOf(b.role);
+
+            return roleAIndex - roleBIndex;
+        }).forEach((member) => {
             embed.addFields({
                 name: `${interaction.guild.members.cache.get(member.id).user.username}`,
                 value: `\`${member.role}\``
