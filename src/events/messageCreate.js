@@ -18,7 +18,7 @@ module.exports = {
         if (user.stats.text >= 100 && !message.member.roles.cache.has(imagesRoleId)) {
             try {
                 message.member.roles.add(imagesRoleId);
-                message.reply('Congratulations! You just unlocked the images on this server\nKeep going 👍');
+                message.reply('Congratulations! You just unlocked the images on this server\nKeep going <\:yes:1335149804812243058>');
             } catch {}
         }
 
@@ -30,8 +30,8 @@ module.exports = {
 
         if (message.channel.id === '1333876095593746556') {
             try {
-                await message.react('👍');
-                await message.react('👎');
+                await message.react(message.guild.emojis.cache.find((emoji) => emoji.name === 'yes').id);
+                await message.react(message.guild.emojis.cache.find((emoji) => emoji.name === 'no').id);
             } catch {}
         }
     }
