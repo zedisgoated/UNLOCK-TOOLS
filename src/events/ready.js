@@ -37,7 +37,5 @@ module.exports = {
             });
             i = ++i % statuses.length;
         }, 60000);
-
-        console.log(guild.emojis.cache.find((emoji) => emoji.name === 'yes').id);
     }
 }
