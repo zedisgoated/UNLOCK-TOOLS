@@ -18,7 +18,7 @@ module.exports = {
         if (user.stats.text >= 100 && !message.member.roles.cache.has(imagesRoleId)) {
             try {
                 message.member.roles.add(imagesRoleId);
-                message.reply('Congratulations! You just unlocked the images on this server\nKeep going <\:yes:1335149804812243058>');
+                message.reply('Congratulations! You just unlocked the images on this server\nKeep going!');
             } catch {}
         }
 

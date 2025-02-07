@@ -30,7 +30,7 @@ module.exports = {
             embeds: [
                 new EmbedBuilder()
                     .setTitle(`${user.username}'s stats`)
-                    .setColor(0x1d3c6d)
+                    .setColor("#a1c6e8")
                     .setAuthor({
                         name: interaction.user.username,
                         iconURL: interaction.user.displayAvatarURL({
