@@ -18,7 +18,7 @@ module.exports = {
         if (user.stats.text >= 100 && !message.member.roles.cache.has(imagesRoleId)) {
             try {
                 message.member.roles.add(imagesRoleId);
-                message.reply('Congratulations! You just unlocked the images on this server\nKeep going!');
+                message.reply('Niveau de difficulté : Avancée\nDémarrage du niveau 2');
             } catch {}
         }
 
